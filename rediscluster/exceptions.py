@@ -60,7 +60,7 @@ class AskError(ResponseError):
         slot_id, new_node = resp.split(' ')
         host, port = new_node.rsplit(':', 1)
         self.slot_id = int(slot_id)
-        self.node_addr = self.host, self.port = host, int(port)
+        self.node_addr = self.host, self.port = host, int(port.split('@')[0])
 
 
 class TryAgainError(ResponseError):
