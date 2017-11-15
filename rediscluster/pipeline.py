@@ -84,7 +84,8 @@ class StrictClusterPipeline(StrictRedisCluster):
     def annotate_exception(self, exception, number, command):
         """
         """
-        cmd = unicode(' ').join(imap(unicode, command))
+        # cmd = unicode(' ').join(imap(unicode, command))
+        cmd = str(command)
         msg = unicode('Command # {0} ({1}) of pipeline caused error: {2}').format(
             number, cmd, unicode(exception.args[0]))
         exception.args = (msg,) + exception.args[1:]
